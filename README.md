@@ -1,14 +1,14 @@
-# Serverless Vs Spring
+# Serverless Vs Spring [![GitHub license](https://img.shields.io/github/license/codeurjc-students/2019-ServerlessVsSpring)](https://github.com/codeurjc-students/2019-ServerlessVsSpring/blob/master/LICENSE)
 In this repository we are going to compare the way we have to develop applications. We will start with microservices made with Spring and we will study the possibilities and disadvantages of serverless development with AWS Lambda.
 
-How I have come to the following conclusions and why I have opted for some of the different options can be seen [here](https://medium.com/serverlessvsspring)
+How I have come to the following conclusions and why I have opted for some of the different options can be seen [here](https://medium.com/serverlessvsspring).
 
 # Comparison Items
 ### The comparison process will be divided in the following microservices:
 
-- [ ] **Configuration of Visual Studio Code to use it with Java and AWS SAM**
+- [ ] **Configuration of ~~Visual Studio Code~~ IntelliJ to use it with Java and AWS SAM**
 
-  How to configure VSCode IDE and prepare it to be used with Java and AWS SAM.
+  How to configure ~~VSCode~~ IntelliJ IDE and prepare it to be used with Java and AWS SAM: [Comparative](sections/IntelliJ-AWS-SAM-Java).
         
 - [ ] **REST in Spring Vs AWS Lambda**
 
