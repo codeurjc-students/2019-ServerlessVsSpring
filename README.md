@@ -6,13 +6,13 @@ How I have come to the following conclusions and why I have opted for some of th
 # Comparison Items
 ### The comparison process will be divided in the following microservices:
 
-- [ ] **Configuration of ~~Visual Studio Code~~ IntelliJ to use it with Java and AWS SAM**
+- [x] **Configuration of ~~Visual Studio Code~~ IntelliJ IDEA to use it with Java and AWS SAM**
 
-  How to configure ~~VSCode~~ IntelliJ IDE and prepare it to be used with Java and AWS SAM: [Comparative](sections/IntelliJ-AWS-SAM-Java).
+  How to configure ~~VSCode~~ IntelliJ IDE and prepare it to be used with Java and AWS SAM: [About AWS SAM with IntelliJ IDEA](sections/IntelliJ-AWS-SAM-Java).
         
 - [ ] **REST in Spring Vs AWS Lambda**
 
-  Comparative between using REST in a common Java stack and a Serverless.
+  Comparative using REST in a common Java stack and a Serverless.
 
 - [ ] **Static web (SPA) - How to deploy a regular static web the common way Vs Amazon S3**
 
