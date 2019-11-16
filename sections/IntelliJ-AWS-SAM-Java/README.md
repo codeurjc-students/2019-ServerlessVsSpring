@@ -21,7 +21,7 @@ To use SAM in IntelliJ is necessary:
 
 ## Configuration
 
-To see my experience and problems encountered see [post]().
+To see my experience and problems encountered see [post](https://medium.com/serverlessvsspring/aws-sam-in-intellij-idea-17ec708d3b70).
 
 1. Configure AWS CLI: 
     1. In AWS Web, click in your user > My Security Credentials:
