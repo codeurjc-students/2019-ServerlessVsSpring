@@ -1,7 +1,3 @@
-- Requisitos
-- Referencia a mi experiencia al blog y problemas que me encontré pero no desarrollarlos.
-- Pasos
-
 # AWS SAM for Java with IntelliJ IDEA
 
 ## Why not Visual Studio Code?
