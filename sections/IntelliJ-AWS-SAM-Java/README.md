@@ -12,6 +12,7 @@ To use SAM in IntelliJ is necessary:
 - [AWS CLI:](https://docs.aws.amazon.com/es_es/cli/latest/userguide/cli-chap-install.html) The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands in your command-line shell.
 - [Docker:](https://www.docker.com/) The AWS SAM CLI requires this open-source software container platform.
 - [AWS SAM CLI:](https://aws.amazon.com/es/serverless/sam/) This is an AWS CLI tool that helps you develop, test, and analyze your serverless applications locally.
+- [Maven.](https://maven.apache.org/download.cgi)
 - [Java JDK.](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [IntelliJ IDEA.](https://www.jetbrains.com/idea/download/)
 
