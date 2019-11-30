@@ -10,9 +10,9 @@ How I have come to the following conclusions and why I have opted for some of th
 
   How to configure ~~VSCode~~ IntelliJ IDE and prepare it to be used with Java and AWS SAM: [About AWS SAM with IntelliJ IDEA](sections/IntelliJ-AWS-SAM-Java).
         
-- [ ] **REST in Spring Vs AWS Lambda**
+- [x] **REST in Spring Vs AWS Lambda**
 
-  Comparative using REST in a common Java stack and a Serverless.
+  Comparative using REST in a common Java stack and a Serverless: [Comparative](sections/REST-AWS-Spring).
 
 - [ ] **Static web (SPA) - How to deploy a regular static web the common way Vs Amazon S3**
 
