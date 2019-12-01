@@ -103,7 +103,7 @@ For REST-Spring demo is necessary:
     mvn spring-boot:run
     ```
 
-2. View get response in localhost: http://localhost:8080/greeting
+2. View get response in localhost: http://localhost:8080/hello
    
 </details>
 </p>
@@ -153,20 +153,20 @@ Resources:
             Path: /hello
             Method: get
 ```
-We also see that the template sets the values of the lambda function, which will be of the Api type (``@RestController`` in Spring), sets the route where it will be executed (the equivalent of ``@RequestMapping ("/ hello")`` in Spring) and with what method (In Spring, the get method is implicit if it is a function and not a method that handles the request).
+We also see that the template sets the values of the lambda function, which will be of the Api type (``@RestController`` in Spring), sets the route where it will be executed (the equivalent of ``@RequestMapping ("/hello")`` in Spring) and with what method (In Spring, ``method = RequestMethod.GET``).
 
-**[GreetingController.java](./source/java-spring/hello_world/src/main/java/hello/GreetingController.java) in Spring:**
+**[HelloWorldController.java](./source/java-spring/hello_world/src/main/java/hello/HelloWorldController.java) in Spring:**
 ``` java
 @RestController
-public class GreetingController {
+public class HelloWorldController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
-    @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                            String.format(template, name));
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public GatewayResponse hello(@RequestParam(required = false) final Object input, @RequestParam(required = false) final Context context) {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+        headers.put("X-Custom-Header", "application/json");
+        String output = String.format("{ \"message\": \"hello world\"}");
+        return new GatewayResponse(output, headers, 200);
     }
 }
 ```
@@ -176,62 +176,24 @@ As we have seen in the template handler, the request will call the function **Ha
 ``` java
 public class App implements RequestHandler<Object, Object> {
 
-    public Object handleRequest(final Object input, final Context context) { 
+    public Object handleRequest(final Object input, final Context context) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("X-Custom-Header", "application/json");
-        try {
-            final String pageContents = this.getPageContents("https://checkip.amazonaws.com");
-            String output = String.format("{ \"message\": \"hello world\", \"location\": \"%s\" }", pageContents);
-            return new GatewayResponse(output, headers, 200);
-        } catch (IOException e) {
-            return new GatewayResponse("{}", headers, 500);
-        }
-    }
-
-    private String getPageContents(String address) throws IOException{
-        URL url = new URL(address);
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
-            return br.lines().collect(Collectors.joining(System.lineSeparator()));
-        }
+        String output = String.format("{ \"message\": \"hello world\"}");
+        return new GatewayResponse(output, headers, 200);
     }
 }
 ```
 The handle prepares the elements that the GatewayResponse object needs. 
-``final Object input`` is the equivalent of ``@RequestParam (value="input") Object input)``
-The objects **Greeting** and **GatewayResponse** are responsible for responding to the GET request of each example.
+``final Object input, final Context context`` is the equivalent of ``@RequestParam(required = false) final Object input, @RequestParam(required = false) final Context context``.
+The objects **GatewayResponse** are the same and give the same response to the request in both examples.
 
-<details>
-<summary>Greeting.java class in Spring</summary>
-<p>
-
-[Greeting.java](./source/java-spring/hello_world/src/main/java/hello/Greeting.java)
-
-``` java
-public class Greeting {
-
-    private final long id;
-    private final String content;
-
-    public Greeting(long id, String content) {
-        this.id = id;
-        this.content = content;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-}
-```
 </details>
 </p>
 
 <details>
-<summary>GatewayResponse.java class in AWS Lambda</summary>
+<summary>GatewayResponse.java class in AWS Lambda and Spring</summary>
 <p>
 
 [GatewayResponse.java](./source/aws-lambda/HelloWorldFunction/src/main/java/helloworld/GatewayResponse.java)
@@ -265,5 +227,7 @@ public class GatewayResponse {
 </details>
 </p>
 
-The way to implement each of the two options also differs as you can see the point “To get started”.
+Although the way to proceed is different as you can see in [To get started](https://github.com/codeurjc-students/2019-ServerlessVsSpring/tree/master/sections/REST-AWS-Spring#to-get-started), we can see that the implementations are very similar, only the headings of the functions and the imports of the classes differ.
+
+
 
