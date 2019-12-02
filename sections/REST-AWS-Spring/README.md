@@ -60,10 +60,34 @@ For REST-Lambda demo is necessary:
 
 ## Use
 
+### Postman
 We can get the url of the lambda function by navigating to API Gateway:
 
 ![API Gateway](./images/api.png)
 
+We can import the API as follows and export from Postman:
+
+![Postman export](./images/export-api.png)
+
+If we import the package from Postman we can make the request:
+
+![Postman GET](./images/api-get.png)
+
+``baseUrl`` is the invoke URL, in our example: https://1xl61kna0a.execute-api.eu-west-1.amazonaws.com/test
+
+``x-api-key`` is the api-key that protects the request, it is not mandatory. To know how to create it see this url: [api-key AWS](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-key-with-console.html)
+
+If we add ``/hello`` to the invoke URL, we make the request to the GET method.
+
+### CURL
+
+We can also request with a Curl as follows:
+
+![CURL GET successful](./images/curl-successful.png)
+
+As a demonstration, if we remove the header that stores the api-key of the request, the result is "Forbidden":
+
+![CURL GET forbidden](./images/curl-forbidden.png)
 
 </details>
 </p>
@@ -94,7 +118,7 @@ For REST-Spring demo is necessary:
 
 ## Use
 
-1. Run the application:
+Run the application:
     ``` sh
     java -jar target/hello_world-0.0.1-SNAPSHOT.jar
     ```
@@ -103,7 +127,15 @@ For REST-Spring demo is necessary:
     mvn spring-boot:run
     ```
 
-2. View get response in localhost: http://localhost:8080/hello
+With http://localhost:8080/hello we can make the following requests by browser, postman and curl
+
+### Postman
+
+![Postman Spring GET](./images/spring-get.png)
+
+### CURL
+
+![CURL Spring GET](./images/curl-spring.png)
    
 </details>
 </p>
@@ -112,7 +144,7 @@ For REST-Spring demo is necessary:
 
 ### Functionality
 
-About the functionality there are no differences, both, Spring and lambda, receive a request and execute a code that elaborates the response. If we focus on the number of requests that can be processed, the winner is undoubtedly AWS Lambda, as it scales according to the number of requests to respond. In Spring, an autoescalated system is not contemplated, an architecture that responds according to the number of requests must be designed, for the other hand, with lambda, that architecture is implicit.
+About the functionality there are no differences, both, Spring and lambda, receive a request and execute a code that elaborates the response. If we focus on the number of requests that can be processed, the winner is undoubtedly AWS Lambda, as it scales according to the number of requests to respond. In Spring, an autoescalated system is not contemplated, an architecture that responds according to the number of requests must be designed, for the other hand, with lambda, that architecture is implicit. Keep in mind that lambdas are stateless functions, each time they are executed through events, a new environment is created. In spring, the functions have state.
 
 ### Implementation
 
@@ -156,17 +188,18 @@ Resources:
 We also see that the template sets the values of the lambda function, which will be of the Api type (``@RestController`` in Spring), sets the route where it will be executed (the equivalent of ``@RequestMapping ("/hello")`` in Spring) and with what method (In Spring, ``method = RequestMethod.GET``).
 
 **[HelloWorldController.java](./source/java-spring/hello_world/src/main/java/hello/HelloWorldController.java) in Spring:**
+
 ``` java
 @RestController
-public class HelloWorldController {
+public class HelloWordController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public GatewayResponse hello(@RequestParam(required = false) final Object input, @RequestParam(required = false) final Context context) {
-        Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type", "application/json");
-        headers.put("X-Custom-Header", "application/json");
-        String output = String.format("{ \"message\": \"hello world\"}");
-        return new GatewayResponse(output, headers, 200);
+    public ResponseEntity<String> hello(@RequestParam(required = false) final Object input, @RequestParam(required = false) final Context context) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/json");
+        headers.add("X-Custom-Header", "application/json");
+        String output = "{ \"message\": \"hello world\"}";
+        return new ResponseEntity<String>(output, headers, HttpStatus.OK);
     }
 }
 ```
@@ -176,7 +209,7 @@ As we have seen in the template handler, the request will call the function **Ha
 ``` java
 public class App implements RequestHandler<Object, Object> {
 
-    public Object handleRequest(final Object input, final Context context) {
+    public GatewayResponse handleRequest(final Object input, final Context context) {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("X-Custom-Header", "application/json");
@@ -186,14 +219,13 @@ public class App implements RequestHandler<Object, Object> {
 }
 ```
 The handle prepares the elements that the GatewayResponse object needs. 
-``final Object input, final Context context`` is the equivalent of ``@RequestParam(required = false) final Object input, @RequestParam(required = false) final Context context``.
-The objects **GatewayResponse** are the same and give the same response to the request in both examples.
+``final Object input, final Context context`` is the equivalent of ``@RequestParam(required = false) final Object input, @RequestParam(required = false) final Context context``. We can observe that in AWS, the headers are formed as a map while in Spring we have the object HttpHeaders. AWS lambda interprets the GatewayResponse object to form the request responses.
 
 </details>
 </p>
 
 <details>
-<summary>GatewayResponse.java class in AWS Lambda and Spring</summary>
+<summary>GatewayResponse.java class in AWS Lambda</summary>
 <p>
 
 [GatewayResponse.java](./source/aws-lambda/HelloWorldFunction/src/main/java/helloworld/GatewayResponse.java)
