@@ -73,9 +73,9 @@ If we import the package from Postman we can make the request:
 
 ![Postman GET](./images/api-get.png)
 
-``baseUrl`` is the invoke URL, in our example: https://1xl61kna0a.execute-api.eu-west-1.amazonaws.com/test
+``baseUrl`` is the invoke URL, something like this: https://xxxxxxxxxx.execute-api.eu-west-1.amazonaws.com/stage
 
-``x-api-key`` is the api-key that protects the request, it is not mandatory. To know how to create it see this url: [api-key AWS](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-key-with-console.html)
+To know how to create an api-key see this url: [api-key AWS](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-setup-api-key-with-console.html)
 
 If we add ``/hello`` to the invoke URL, we make the request to the GET method.
 
@@ -84,10 +84,6 @@ If we add ``/hello`` to the invoke URL, we make the request to the GET method.
 We can also request with a Curl as follows:
 
 ![CURL GET successful](./images/curl-successful.png)
-
-As a demonstration, if we remove the header that stores the api-key of the request, the result is "Forbidden":
-
-![CURL GET forbidden](./images/curl-forbidden.png)
 
 </details>
 </p>
@@ -127,7 +123,7 @@ Run the application:
     mvn spring-boot:run
     ```
 
-With http://localhost:8080/hello we can make the following requests by browser, postman and curl
+With http://localhost:8080/hello we can make the following requests by browser, postman and curl.
 
 ### Postman
 
