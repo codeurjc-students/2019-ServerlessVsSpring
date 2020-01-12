@@ -14,9 +14,9 @@ How I have come to the following conclusions and why I have opted for some of th
 
   Comparative using REST in a common Java stack and a Serverless: [Comparative](sections/REST-AWS-Spring).
 
-- [ ] **Static web (SPA) - How to deploy a regular static web the common way Vs Amazon S3**
+- [ ] **Single-page application (SPA): Non-Serverless deployment vs Serverless deployment**
 
-  How to deploy a static web normally and how it is done in an Amazon S3 bucket.
+  How to deploy a static web normally and how it is done in an Amazon S3 bucket: [Deployment comparative](sections/SPA-Deployment)
   
 - [ ] **Users Management**
 

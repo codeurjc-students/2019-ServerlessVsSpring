@@ -115,13 +115,13 @@ For REST-Spring demo is necessary:
 ## Use
 
 Run the application:
-    ``` sh
-    java -jar target/hello_world-0.0.1-SNAPSHOT.jar
-    ```
-    or 
-    ``` sh
-    mvn spring-boot:run
-    ```
+``` sh
+java -jar target/hello_world-0.0.1-SNAPSHOT.jar
+```
+or 
+``` sh
+mvn spring-boot:run
+```
 
 With http://localhost:8080/hello we can make the following requests by browser, postman and curl.
 
@@ -255,7 +255,7 @@ public class GatewayResponse {
 </details>
 </p>
 
-Although the way to proceed is different as you can see in [To get started](https://github.com/codeurjc-students/2019-ServerlessVsSpring/tree/master/sections/REST-AWS-Spring#to-get-started), we can see that the implementations are very similar, only the headings of the functions and the imports of the classes differ.
+Although the way to proceed is different as you can see in [To get started](#to-get-started), we can see that the implementations are very similar, only the headings of the functions and the imports of the classes differ.
 
 
 
