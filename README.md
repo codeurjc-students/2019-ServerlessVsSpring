@@ -16,7 +16,7 @@ How I have come to the following conclusions and why I have opted for some of th
 
 - [ ] **Single-page application (SPA): Non-Serverless deployment vs Serverless deployment**
 
-  How to deploy a static web normally and how it is done in an Amazon S3 bucket: [Deployment comparative](sections/SPA-Deployment)
+  How to deploy a static web normally and how it is done in an Amazon S3 bucket: [Deployment comparative](sections/SPA-Deployment).
   
 - [ ] **Users Management**
 
