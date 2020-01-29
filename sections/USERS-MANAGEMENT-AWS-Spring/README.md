@@ -1,4 +1,6 @@
-# REST comparative AWS Lambda and Spring with Java
+# User management comparative AWS vs Spring
+
+# TO REMOVE
 
 ## To get started
 
@@ -14,7 +16,7 @@ For REST-Lambda demo is necessary:
 - [AWS CLI:](https://docs.aws.amazon.com/es_es/cli/latest/userguide/cli-chap-install.html) The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands in your command-line shell.
 - [AWS SAM CLI:](https://aws.amazon.com/es/serverless/sam/) This is an AWS CLI tool that helps you develop, test, and analyze your serverless applications locally.
 - [Maven.](https://maven.apache.org/download.cgi)
-- [JDK.](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [Java JDK.](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 ## Configure AWS CLI
 
@@ -85,11 +87,13 @@ We can also request with a Curl as follows:
 
 ![CURL GET successful](./images/curl-successful.png)
 
+# TO REMOVE
+
 </details>
 </p>
-<details>
-<summary>Spring with Java</summary>
-<p>
+<!--<details>
+<summary>Spring Security</summary>
+<p>-->
 
 ## Requirements
 
@@ -97,6 +101,7 @@ For REST-Spring demo is necessary:
 
 - [Maven.](https://maven.apache.org/download.cgi)
 - [JDK.](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- [IntelliJ IDEA.](https://www.jetbrains.com/idea/download/)
 
 ## Installation
 
