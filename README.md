@@ -20,7 +20,7 @@ How I have come to the following conclusions and why I have opted for some of th
   
 - [ ] **Users Management**
 
-  Users management using a typical authentication system in Spring and how to do it using AWS services instead.
+  Users management using a typical authentication system in Spring and how to do it using AWS services instead [User Management comparative](sections/USERS-MANAGEMENT-AWS-Spring).
 
 - [ ] **Files**
 
