@@ -50,7 +50,7 @@ For REST-Lambda demo is necessary:
 
 5. We need to package our SAM applicaction. Execute this command in **aws-lambda** folder:
     ``` sh
-    sam package --template-file template.yaml --s3-bucket my-bucket --output-template-file packaged-template.yaml
+    sam package --template-file template.yaml --s3-bucket rest-demo-serverless-vs-spring --output-template-file packaged-template.yaml
     ```
 
 6. Now we must deploy the application with the following command:

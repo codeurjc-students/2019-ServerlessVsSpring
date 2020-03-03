@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>User management example </title>
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+				<form class="login100-form validate-form" id="registrationForm">
+					<span class="login100-form-title p-b-55">
+						Signup
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" id="emailInputRegister" name="email" placeholder="Email" pattern=".*" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+					</div>
+
+                    <div class="wrap-input100 validate-input m-b-16">
+						<input class="input100" type="password" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+					</div>
+					  
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+						<input class="input100" type="password" id="password2InputRegister" placeholder="Confirm Password" pattern=".*" required>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+					</div>
+                    <div class="container-login100-form-btn p-t-25">
+						<button class="login100-form-btn" type="submit">
+							Signup
+						</button>
+					</div>
+                    <div class="text-center w-full p-t-115">
+						<span class="txt1">
+							Already registered?
+						</span>
+
+						<a class="txt1 bo1 hov1" href="login.html">
+							Sign in now							
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	 <script src="js/vendor/jquery-3.1.0.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/vendor/aws-cognito-sdk.min.js"></script>
+	<script src="js/vendor/amazon-cognito-identity.min.js"></script>
+	<script src="js/config.js"></script>
+	<script src="js/cognito-auth.js"></script>
+</body>
+</html>
